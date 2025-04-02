@@ -2,7 +2,8 @@
 
 ## Setup
 
-`pip install -r requirements.txt`
+- setup a python virtual environment with 64 bit python
+- `pip install -r requirements.txt`
 
 ## File Structure Overview
 
