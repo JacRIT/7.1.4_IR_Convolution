@@ -1,2 +1,4 @@
 /.venv
-/**/**/*.wav
+/IR-directory/*
+/in/*.wav
+/out/*

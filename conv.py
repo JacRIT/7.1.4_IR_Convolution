@@ -4,8 +4,14 @@ import scipy.signal as signal
 import soundfile as sf
 
 # Define the top-level directory
-top_level_dir = "C:\\RIT\\RIT-24-25\\Spring\\3D\\bin_project\\IRGroup2_LR_SWAP"
-input_file = os.path.join(top_level_dir, "in", "Jacob_Canedy_Assignment1.wav")  # 12-channel input file
+ir_group_dir = "IR-directory"
+input_file_name = input("Enter the WAV file name (without .wav extension) Located in the /in directory: ").strip()
+
+if not input_file_name:
+    print("No file name entered. Exiting...")
+    assert False
+    
+input_file = os.path.join("in", f"{input_file_name}.wav")  # 12-channel input file
 
 # Speaker positions in 7.1.4 system
 positions = [
@@ -19,8 +25,9 @@ input_signal, fs = sf.read(input_file)
 assert input_signal.shape[1] == 12, "Input file must have 12 channels."
 
 # Iterate through each person's directory
-for person in os.listdir(top_level_dir):
-    person_dir = os.path.join(top_level_dir, person)
+for person in os.listdir(ir_group_dir):
+    print(f"Processing {person}...")
+    person_dir = os.path.join(ir_group_dir, person)
     if not os.path.isdir(person_dir):
         continue
     
@@ -47,9 +54,9 @@ for person in os.listdir(top_level_dir):
         binaural_R *= 0.98 / max_val
     
     # Save output
-    out_dir = os.path.join(person_dir, "out")
+    out_dir = os.path.join("out", person)
     os.makedirs(out_dir, exist_ok=True)
-    out_file = os.path.join(out_dir, "binaural_output.wav")
+    out_file = os.path.join(out_dir, f"{input_file_name}_binaural_out.wav")
     sf.write(out_file, np.column_stack((binaural_L, binaural_R)), fs)
 
 print("Processing complete.")

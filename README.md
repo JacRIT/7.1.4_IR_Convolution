@@ -7,7 +7,7 @@
 
 ## File Structure Overview
 
-The **top-level directory** contains multiple **subdirectories**, each representing a person (e.g., `Person1`, `Person2`, etc.). Each **person's directory** contains:
+The **IR-directory** contains multiple **subdirectories**, each representing a person (e.g., `Person1`, `Person2`, etc.). Each **person's directory** contains:
 
 ### Impulse Response Files (IRs)
 
@@ -20,7 +20,9 @@ The **top-level directory** contains multiple **subdirectories**, each represent
   - `lfe1.wav` (low-frequency effects channel)
   - `voiceofgod.wav` (likely an overhead source)
 
-### "out" Directory
+The top level directory contains
+
+### "out" Directory (Located in the Top-Level Directory)
 
 - This subdirectory will store the **binaural output** after processing for each person
 
@@ -37,9 +39,9 @@ The **top-level directory** contains multiple **subdirectories**, each represent
 ## Usage Instructions
 
 1. Place the **12-channel input `.wav` file** inside the `"in"` directory.
-2. Organize each person's impulse responses inside their respective subdirectories.
+2. Assure the IR-directory is setup properly based on (file structure)[Impulse Response Files (IRs)]
 3. Run the Python script to perform convolution and generate binaural audio.
-4. The output files will be saved inside each person's `"out"` directory.
+4. The output files will be saved inside `"out"` directory.
 
 ## Convolution Method
 
@@ -50,5 +52,5 @@ The **top-level directory** contains multiple **subdirectories**, each represent
 ## Running the Script
 
 ```sh
-python binaural_convolution.py
+python conv.py
 ```
