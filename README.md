@@ -22,7 +22,7 @@ The **top-level directory** contains multiple **subdirectories**, each represent
 
 ### "out" Directory
 
-- This subdirectory will store the **binaural output** after processing.
+- This subdirectory will store the **binaural output** after processing for each person
 
 ### "in" File (Located in the Top-Level Directory)
 
