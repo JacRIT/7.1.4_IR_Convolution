@@ -1,0 +1,14 @@
+{
+  "0": "frontleft",
+  "1": "frontright",
+  "2": "frontcenter",
+  "3": "lfe1",
+  "4": "backleft",
+  "5": "backright",
+  "6": "sideleft",
+  "7": "sideright",
+  "8": "topfrontleft",
+  "9": "topfrontright",
+  "10": "topbackleft",
+  "11": "topbackright"
+}
