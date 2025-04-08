@@ -48,8 +48,14 @@ for person in os.listdir(ir_group_dir):
         if pos in irs:
             trim_length = fs // 2  # Trim IR to first 0.5 seconds
             left_ir, right_ir = irs[pos][:trim_length, 0], irs[pos][:trim_length, 1]
-            binaural_L += signal.convolve(input_signal[:, i], left_ir, mode='same')
-            binaural_R += signal.convolve(input_signal[:, i], right_ir, mode='same')
+            if pos == "lfe1":
+                # Reduce lfe volume if too loud
+                reduction = .1
+                binaural_L += signal.convolve(input_signal[:, i], left_ir, mode='same') * reduction
+                binaural_R += signal.convolve(input_signal[:, i], right_ir, mode='same') * reduction
+            else:
+                binaural_L += signal.convolve(input_signal[:, i], left_ir, mode='same')
+                binaural_R += signal.convolve(input_signal[:, i], right_ir, mode='same')
         else:
             print(f"Warning: No IR found for channel {i} ({pos})")
 
