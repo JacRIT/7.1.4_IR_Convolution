@@ -46,7 +46,7 @@ for person in os.listdir(ir_group_dir):
     for i in range(input_signal.shape[1]):
         pos = index_to_position.get(i)
         if pos in irs:
-            trim_length = fs // 2  # Trim IR to first 0.5 seconds
+            trim_length = fs // 2  # Trim IR to half the length of the file
             left_ir, right_ir = irs[pos][:trim_length, 0], irs[pos][:trim_length, 1]
             binaural_L += signal.convolve(input_signal[:, i], left_ir, mode='same')
             binaural_R += signal.convolve(input_signal[:, i], right_ir, mode='same')
